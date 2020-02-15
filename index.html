@@ -2,11 +2,16 @@
 <html lang="en">
 
 <head>
+	<link rel="icon" href="ico/minertex.ico">
+
+
 	<title>Minertex Perú</title>
+	<link rel="icon" type="image/png" href="images/logo.png">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Course Project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 	<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -14,6 +19,82 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+	<style>
+		.btn-inscription {
+			color: white; 
+			background: #3daeea; 
+			height: 60px; 
+			font-size: 25px;
+		}
+		
+	</style>
+	<script>
+		function sendWhatsapp_info(){		
+			
+			var phone_contacto = "51999909380"
+			var message_contacto = document.getElementById("info_contacto").value;	
+			var message_contacto_vacio = "Quiero recibir mas información de los cursos"
+			var whatsapp_url_mobile_contacto = "https://api.whatsapp.com/send?phone=" + phone_contacto + "&text=" + message_contacto;
+			var whatsapp_url_mobile_contacto_vacio = "https://api.whatsapp.com/send?phone=" + phone_contacto + "&text=" + message_contacto_vacio;
+			var whatsapp_url_web_contacto = "https://web.whatsapp.com/send?phone=" + phone_contacto + "&text=" + message_contacto;	
+			var whatsapp_url_web_contacto_vacio = "https://web.whatsapp.com/send?phone=" + phone_contacto + "&text=" + message_contacto_vacio;			
+			var info=window.open('','_blank');	
+
+			if(!message_contacto){
+				if (screen.width < 1024) 
+					{
+						info.location= whatsapp_url_mobile_contacto_vacio;
+					}
+				else 
+				if (screen.width < 1280) 
+					{
+						info.location= whatsapp_url_web_contacto_vacio;
+					}
+				else 
+					{
+						info.location= whatsapp_url_web_contacto_vacio;
+					}
+
+			}
+			else {
+				if (screen.width < 1024) 
+					{
+						info.location= whatsapp_url_mobile_contacto;
+					}
+				else 
+				if (screen.width < 1280) 
+					{
+						info.location= whatsapp_url_web_contacto;
+					}
+				else 
+					{
+						info.location= whatsapp_url_web_contacto;
+					}
+			}
+		}
+
+		function sendWhatsapp_inscription(){			
+			var phone = "51999909380"
+			//var message = "hola este es un texto"
+			var message = document.getElementById("value_inscription").value;			
+			var whatsapp_url_mobile = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + message;
+			var whatsapp_url_web = "https://web.whatsapp.com/send?phone=" + phone + "&text=" + message;			
+			var bob=window.open('','_blank');			
+				if (screen.width < 1024) 
+					{
+						bob.location= whatsapp_url_mobile;
+					}
+				else 
+				if (screen.width < 1280) 
+					{
+						bob.location= whatsapp_url_web;
+					}
+				else 
+					{
+						bob.location= whatsapp_url_web;
+					}
+		}
+	</script>
 
 </head>
 
@@ -28,8 +109,8 @@
 				<!-- Logo -->
 				<div class="logo_container">
 					<div class="logo">
-						<!--	<img src="images/logo.png" alt=""> -->
-						<span>Minertex Perú</span>
+						<img src="images/logo.png" alt="" style="width: 70px; height: 70px;"> 
+						<span>Minertex Perú </span>
 					</div>
 				</div>
 
@@ -37,12 +118,11 @@
 				<nav class="main_nav_container">
 					<div class="main_nav">
 						<ul class="main_nav_list">
-							<!--<li class="main_nav_item"><a href="#">Inicio</a></li> -->
-							<li class="main_nav_item"><a href="#">¿Quienes Somos?</a></li>
-							<li class="main_nav_item"><a href="courses.html">Cursos</a></li>
-							<li class="main_nav_item"><a href="elements.html">Beneficios</a></li>
-							<!--	<li class="main_nav_item"><a href="news.html">news</a></li> -->
-							<li class="main_nav_item"><a href="contact.html">contacto</a></li>
+							 <li class="main_nav_item"><a href="#">Inicio</a></li> 
+							<li class="main_nav_item"><a href="#cursos">Cursos</a></li>														
+							<li class="main_nav_item"><a href="#beneficios">Beneficios</a></li>
+							<li class="main_nav_item"><a href="#nosotros">Nosotros</a></li>
+							<li class="main_nav_item"><a href="#contacto">Contacto</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -73,28 +153,12 @@
 				<div class="menu menu_mm">
 					<ul class="menu_list menu_mm">
 						<li class="menu_item menu_mm"><a href="#">Inicio</a></li>
-						<li class="menu_item menu_mm"><a href="#">Nosotros</a></li>
-						<li class="menu_item menu_mm"><a href="courses.html">Cursos</a></li>
-						<li class="menu_item menu_mm"><a href="elements.html">Beneficios</a></li>
+						<li class="menu_item menu_mm"><a href="#cursos">Cursos</a></li>
+						<li class="menu_item menu_mm"><a href="#beneficios">Beneficios</a></li>
+						<li class="menu_item menu_mm"><a href="#nosotros">Nosotros</a></li>
 						<!--	<li class="menu_item menu_mm"><a href="news.html">News</a></li> -->
-						<li class="menu_item menu_mm"><a href="contact.html">Contacto</a></li>
-
-
+						<li class="menu_item menu_mm"><a href="#contacto">Contacto</a></li>
 					</ul>
-
-					<!-- Menu Social -->
-
-					<div class="menu_social_container menu_mm">
-						<ul class="menu_social menu_mm">
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="menu_social_item menu_mm"><a href="#"><i class="fab fa-twitter"></i></a></li>
-						</ul>
-					</div>
-
-					<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
 				</div>
 
 			</div>
@@ -105,116 +169,62 @@
 
 		<div class="home">
 
-			<!-- Hero Slider -->
+			<!-- Sliders -->
 			<div class="hero_slider_container">
 				<div class="hero_slider owl-carousel">
-
-
-
-					<!-- Hero Slide -->
+					<!-- Hero Slide 1 -->
 					<div class="hero_slide">
 						<div class="hero_slide_background "  style="background-image:url(images/maquinaria.jpg)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Operador de
 									<span>Maquinaria Pesada</span></h1>
-									<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
-										Graduate como operador profesional de maquinaria pesada en corto tiempo.
-										
-										</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
+									<h1 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
+										Graduate como operador profesional de maquinaria pesada en corto tiempo.										
+										</h1>
+									<br>
+									<button type="button" class="btn-inscription btn btn-lg " data-toggle="modal" data-target="#ModalInscribir" >
+									Inscríbete Ahora <i class="fas fa-mouse-pointer" style="color: white;"></i> 
+									</button>																									
 							</div>
 						</div>
-					</div>
-
-					
-
-					<!-- Hero Slide -->
+					</div>					
+					<!-- Hero Slide 2 -->
 					<div class="hero_slide">
 						<div class="hero_slide_background" style="background-image:url(images/scanner.png)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Inyección
 									<span> Electrónica Automotriz</span></h1>
-								<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
+								<h1 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
 									Convierte en un especialista de mecatrónica automotriz haciendo uso de equipos de alta tecnología.
-								</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
+								</h1>
+								<br>
+								<button type="button" class="btn-inscription btn btn-lg " data-toggle="modal" data-target="#ModalInscribir" >
+									Inscríbete Ahora <i class="fas fa-mouse-pointer" style="color: white;"></i> 
+								</button>
 							</div>
 						</div>
 					</div>
-
-					<!-- Hero Slide -->
+					<!-- Hero Slide 3 -->
 					<div class="hero_slide">
 						<div class="hero_slide_background" style="background-image:url(images/automatica.jpg)"></div>
 						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
 							<div class="hero_slide_content text-center">
 								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Reparación de
 									<span>Cajas Automáticas</span></h1>
-									<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
-										conviértete  en un profesional especialista en mantenimiento y reparación de cajas automáticas en tan solo 3 meses.
+									<h1 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
+										conviértete  en un profesional especialista en mantenimiento y reparación de cajas automáticas en tan solo 3 meses.									
+										</h1>
+								<br>
+								<button type="button" class="btn-inscription btn btn-lg " data-toggle="modal" data-target="#ModalInscribir" >
+									Inscríbete Ahora <i class="fas fa-mouse-pointer" style="color: white;"></i> 
+								</button>
+							</div>
+						</div>
+					</div>			
+
 									
-										</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(images/startup.jpg)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Creación de
-									<span>Empresas y Startup </span></h1>
-									<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
-											Si quieres ser rico deja de pensar como empleado y empieza a pensar como empresario.
-									</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(images/desarrollador.jpg)"></div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Desarrollo
-									de <span>Aplicaciones Web</span></h1>
-									<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
-											Convierte en un programador y desarrolla aplicaciones como facebook, youtube, netflix o Spotify.
-										<!--	Domina los lenguajes de código, herramientas, arquitectura, bases de datos y más. -->
-										
-										</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
-							</div>
-						</div>
-					</div>
-
-					<!-- Hero Slide -->
-					<div class="hero_slide">
-						<div class="hero_slide_background" style="background-image:url(images/transformacion.jpg)">
-						</div>
-						<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
-							<div class="hero_slide_content text-center">
-								<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Tranformación
-									<span> Digital de Negocios</span></h1>
-							<h2 style="font-size: 2.2em; color:white; padding:0% 10% 0% 10%;">
-								Has crecer tu negocio y duplica tus ganancias utilizando las nuevas tecnologias digitales.
-								Miles de clientes esperan por ti.	
-							</h2>
-								<br><button type="button" class="btn btn-lg btn-warning" style="color: black;">
-									Inscríbete <i class="fas fa-mouse-pointer " style="color: white;"></i> </button>
-							</div>
-						</div>
-					</div>
-
 				</div>
 
 				<div class="hero_slider_left hero_slider_nav trans_500"><span class="trans_500"><i
@@ -225,34 +235,10 @@
 
 		</div>
 		
-		<!-- Popular -->
+		
 
-		<div class="popular page_section">
-			<div class="container p-5">
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h1>¿Quiénes somos?</h1> <br>
-							<p style="font-size: 1.3em">
-								Somos un equipo multidisciplinario conformado por mentores, asesores, ingenieros y especialistas con formación especializada en tecnología e innovación, la cuál sabemos que es clave para que tú o tu empresa logren competitividad internacional y mayores estándares de calidad.
-							
-							</p>
-								<button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Conócenos más </button>
-						</div>
-						<div class="row">
-							<div class="col-lg-7 mx-auto mt-5"><img src="images/team.jpg" alt="..." class="intro-image img-fluid"></div>
-						  </div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-
-		<!-- Popular -->
-
-		<div class="popular page_section">
+		<!-- Inicio de Lista de Cursos Presenciales Minertex-->
+		<div id="cursos" class="popular page_section">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -261,325 +247,119 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="row course_boxes">
-
+				<div class="row course_boxes">									
 					<!-- Popular Course Item -->
 					<div class="col-lg-4 course_box">
 						<div class="card">
-							<img class="card-img-top" src="images/cursos/maquinaria.jpg"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
+							<img class="card-img-top" src="images/cursos/maquinaria.jpg" alt="https://unsplash.com/@dsmacinnes" style="height: 239px; width: 100%;"> 
 							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Operador de Maquinaria &nbsp; Pesada</a>
+								<div class="card-title"><a href="https://drive.google.com/open?id=1ejKiC3RG8UQBmmOebhzJM9WLf_yNPmV7" target="_blank">Curso de Operador de Maquinaria Pesada</a></div>
+								<div class="card-text text-left">
+									Graduate como operador profesional de maquinaria pesada en corto tiempo.
+									El entrenamiento es eminentemente práctico y está a cargo de reconocidos profesionales, con el respaldo teórico necesario para dar al participante la confianza que requiere en el competitivo mercado laboral.
 								</div>
-								<div class="card-text">Graduate como operador profesional de maquinaria pesada en corto tiempo.</div> <br>
 							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-01" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-01">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-02" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-02">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-03" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-03">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
-							</div>
-							<br>
-						</div>
-					</div>
-
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/cursos/scanner.png"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Inyección Electrónica Automotriz</a>
-								</div>
-								<div class="card-text">Convierte en un especialista de mecatrónica automotriz haciendo uso de equipos de alta tecnología.</div> <br>
-							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-07" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-07">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-08" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-08">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-09" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-09">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
-							</div>
-							<br>
+							<div class="price_box d-flex flex-row align-items-center">								
+								<div class="course_author_name">Duración: <span>4 meses</span></div>
+								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>S/.800 x Mes</span></div>
+							</div>			
+							<div>
+								<button class="btn_download trans_200"> 
+									<a href="https://drive.google.com/open?id=1ejKiC3RG8UQBmmOebhzJM9WLf_yNPmV7" target="_blank" style="color:white;"> DESCARGAR INFO DEL CURSO<i class="fas fa-cloud-download-alt fa-lg ml-2"></i></a>
+								</button> 								
+							</div>							
 						</div>
 					</div>
 					<!-- Popular Course Item -->
 					<div class="col-lg-4 course_box">
 						<div class="card">
-							<img class="card-img-top" src="images/cursos/automatica.jpg"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
+							<img class="card-img-top" src="images/cursos/scanner.png" alt="https://unsplash.com/@dsmacinnes" style="height: 239px; width: 100%;"> 
 							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Reparación de Cajas Automáticas</a></div>
-								<div class="card-text">conviértete  en un profesional de mantenimiento y reparación de cajas automáticas.</div> <br>
+								<div class="card-title"><a href="https://drive.google.com/open?id=12J_4pw-Xj0zgg0TO_2zanBF4CoXgDT8-" target="_blank">Curso de Inyección Electrónica Automotriz</a></div>
+								<div class="card-text text-left">
+									Convierte en un especialista de mecatrónica automotriz haciendo uso de equipos de alta tecnología.
+									Este módulo da a conocer los sistemas de inyección electrónica de combustible en motores a gasolina y diésel, también el uso del multitester, osciloscopio automotriz y el explorador en el análisis de fallas DTC y datos actuales. 
+								</div>
 							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-13" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-13">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-14" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-14">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-15" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-15">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
+							<div class="price_box d-flex flex-row align-items-center">								
+								<div class="course_author_name">Duración: <span>3 meses</span></div>
+								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>S/.800 x Mes</span></div>
 							</div>
-							<br>
+							<div>
+								<button class="btn_download trans_200"> 
+									<a href="https://drive.google.com/open?id=12J_4pw-Xj0zgg0TO_2zanBF4CoXgDT8-" target="_blank" style="color:white;"> DESCARGAR INFO DEL CURSO <i class="fas fa-cloud-download-alt fa-lg ml-2"></i></a>
+								</button> 								
+							</div>
+
 						</div>
 					</div>
-
-					
-
-				</div>
-
-				<!--Segunda fila de cursos-->
-
-
-				<div class="row course_boxes">
-
 					<!-- Popular Course Item -->
 					<div class="col-lg-4 course_box">
 						<div class="card">
-							<img class="card-img-top" src="images/cursos/startup.jpg"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Creación de Empresas y Startups</a></div>
-								<div class="card-text">Si quieres ser rico deja de pensar como empleado y empieza a pensar como empresario.</div> <br>
-							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-04" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-04">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-05" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-05">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-06" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-06">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
-							</div>
-							<br>
-						</div>
-					</div>
+							<img class="card-img-top" src="images/cursos/automatica.jpg" alt="https://unsplash.com/@dsmacinnes" style="height: 239px; width: 100%;"> 
+							
+							
 
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/cursos/desarrollador.jpg"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
 							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Desarrollador de Aplicaciones Web</a>
+								<div class="card-title"><a href="https://drive.google.com/open?id=1r6r0tKjefBC1eJxjcGw16-ajFNQCr36D" target="_blank">Curso de Reparación de Cajas Automáticas</a></div>
+								<div class="card-text text-left">
+									Este curso le brindará el conocimiento de las Cajas Automáticas de los vehiculos modernos, permitiendoles apropiarse de técnicas de diagnóstico, reparación y solución de las fallas en los componentes electrónicos y Mecánicos de las Trasmisiones Automáticas.
 								</div>
-								<div class="card-text">Convierte en un programador y desarrolla aplicaciones como facebook, youtube, netflix o Spotify.</div> <br>
 							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-10" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-10">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-11" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-11">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-12" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-12">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
+							<div class="price_box d-flex flex-row align-items-center">								
+								<div class="course_author_name">Duración: <span>3 meses</span></div>
+								<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>S/.800 x Mes</span></div>
 							</div>
-							<br>
-						</div>
-					</div>
+							<div>
+								<button class="btn_download trans_200"> 
+									<a href="https://drive.google.com/open?id=1r6r0tKjefBC1eJxjcGw16-ajFNQCr36D" target="_blank" style="color:white;"> DESCARGAR INFO DEL CURSO <i class="fas fa-cloud-download-alt fa-lg ml-2"></i></a>
+								</button> 								
+							</div>
 
-					
-					<!-- Popular Course Item -->
-					<div class="col-lg-4 course_box">
-						<div class="card">
-							<img class="card-img-top" src="images/cursos/transformacion.jpg"
-								alt="https://unsplash.com/@kellybrito" style="height: 239px; width: 100%;">
-							<div class="card-body text-center">
-								<div class="card-title"><a href="courses.html">Transformación Digital de Empresas</a>
-								</div>
-								<div class="card-text">Has crecer tu negocio y duplica tus ganancias utilizando las nuevas tecnologias digitales.
-									</div> <br>
-							</div>
-							<ul class="list-group list-group-flush">
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-16" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 01</a>
-								<div class="collapse" id="collapse-16">
-									<div class="card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-17" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down "></i> &nbsp; Módulo 02 </a>
-								<div class="collapse" id="collapse-17">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-								<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse"
-									data-target="#collapse-18" style="font-size: 1.3em; color: black;"> <i
-										class="fas fa-chevron-down"></i> &nbsp; Módulo 03 </a>
-								<div class="collapse" id="collapse-18">
-									<div class=" card-body p-3" style="font-size: 1.2em; color: black;">
-										Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-										anderson cred nesciunt sapiente ea proident.
-									</div>
-								</div>
-							</ul>
-							<div class="card-body text-center">
-								<br><button type="submit" class="btn" style=" background: #ffb606; color: white;">
-									Descargar sílabus </button>
-							</div>
-							<br>
 						</div>
-					</div>
-
-				</div>
+					</div>					
+				</div>								
 			</div>
 		</div>
 
+		<!-- Inicio de Boton de Inscripcion-->
+		<div style="text-align: center;">
+			<button type="button" class="btn-inscription btn btn-lg " data-toggle="modal" data-target="#ModalInscribir" >
+				Inscríbete Ahora <i class="fas fa-mouse-pointer" style="color: white;"></i> 
+			</button>
+		</div>
+		<!-- Fin de Boton de Inscripcion-->
 		
-		<!-- Inicio de Beneficios -->
+	
+		<!-- Modal -->
+		<div class="modal fade" id="ModalInscribir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h2 class="modal-title" id="exampleModalLabel">Incribete Ahora</h2>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+					<form action="">
+					<div class="form-group">
+						<textarea id="value_inscription" class="form-control" rows="3"> Quiero inscribirme ahora!</textarea>
+					  </div>
+					</form>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" onclick="sendWhatsapp_inscription()">Enviar</button>
+				</div>
+			</div>
+			</div>
+		</div>
 
-		<div class="events page_section">
+	
+	
+		<!-- Inicio de Beneficios -->
+		<div id="beneficios" class="events page_section">
 			<div class="container">
 
 				<div class="row">
@@ -598,17 +378,16 @@
 								<div class="col-lg-2 order-lg-1 order-2">
 									<div
 										class="event_date d-flex flex-column align-items-center justify-content-center">
-										<div class="event_day">01</div>
-										
+										<div class="event_day">01</div>										
 									</div>
 								</div>
 
 								<div class="col-lg-6 order-lg-2 order-3">
 									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="#">Aprenderás en 12 Semanas</a></div>
-										<div class="event_location">Grand Central Park</div>
-										<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor
-											nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+										<div class="event_name"><a class="trans_200" href="#">Aprenderás en Corto Tiempo</a></div>
+										
+										<p>Aprenderás una nueva habilidad en corto tiempo, ya que sabemos que el tiempo es importante para ti.
+											</p>
 									</div>
 								</div>
 
@@ -621,7 +400,6 @@
 							</div>
 						</div>
 					</div>
-
 					<!-- Event Item -->
 					<div class="row event_item">
 						<div class="col">
@@ -634,13 +412,14 @@
 										
 									</div>
 								</div>
-
 								<div class="col-lg-6 order-lg-2 order-3">
 									<div class="event_content">
 										<div class="event_name"><a class="trans_200" href="#">Practicas 80% y Teoría 20%</a></div>
-										<div class="event_location">Grand Central Park</div>
-										<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor
-											nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+										
+										<p>
+											Con nuestros laboratorios equipados con modulos de última tecnología aprenderás de manera práctica
+											solucionando problemas reales.
+										</p>
 									</div>
 								</div>
 
@@ -653,7 +432,6 @@
 							</div>
 						</div>
 					</div>
-
 					<!-- Event Item -->
 					<div class="row event_item">
 						<div class="col">
@@ -666,16 +444,14 @@
 										
 									</div>
 								</div>
-
 								<div class="col-lg-6 order-lg-2 order-3">
 									<div class="event_content">
-										<div class="event_name"><a class="trans_200" href="#">Metodología Peer to Peer</a></div>
-										<div class="event_location">Grand Central Park</div>
-										<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor
-											nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor.</p>
+										<div class="event_name"><a class="trans_200" href="#">Metodología Peer to Peer</a></div>										
+										<p>											 
+											Compite y aprende en equipo desarrollando proyectos reales o solucionando fallas técnicas.
+										</p>
 									</div>
 								</div>
-
 								<div class="col-lg-4 order-lg-3 order-1">
 									<div class="event_image">
 										<img src="images/event_3.jpg" alt="https://unsplash.com/@juanmramosjr">
@@ -692,79 +468,70 @@
 		</div>
 		<!--Fin de Beneficios-->
 
-		<!-- Inicio de Contacto -->
+		<!-- Inicio de Boton de Inscripcion-->
+		<div id="nosotros" style="text-align: center;">
+			<button type="button" class="btn-inscription btn btn-lg " data-toggle="modal" data-target="#ModalInscribir" >
+				Inscríbete Ahora <i class="fas fa-mouse-pointer" style="color: white;"></i> 
+			</button>
+		</div>
+		
 
-		<div class="register pt-5">
+		<!-- Inicio de Quienes Somos -->
+		<div  class="popular page_section">
+			<div class="container p-5">
+				<div class="row">
+					<div class="col">
+						<div class="section_title text-center">
+							<h1>¿Quiénes somos?</h1> <br>
+							<p style="font-size: 1.3em">
+								Somos un equipo multidisciplinario conformado por técnicos e ingenieros con formación especializada en tecnología e innovación, la cuál sabemos que es clave para que tú logres ser un profesional de calidad.							
+							</p>
+						<!--	<button type="submit" class="btn" style=" background: #ffb606; color: white;">
+								Conócenos más 
+							</button> -->
+						</div>
+						<div class="col-lg-7 mx-auto mt-5"><img src="images/team.jpg" alt="..." class="intro-image img-fluid"></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIn de Quienes Somos-->
+
+		
+
+		<!-- Inicio de Contacto -->
+		<div id="contacto" class="register pt-5">
 
 			<div class="container pb-5">
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-							<h1>Inscríbete Hoy</h1>
+							<h1>Contáctanos</h1>
 						</div>
 					</div>
 				</div>
 				<div class="row row-eq-height">
-					
 					<div class="col-lg-12 nopadding ">
-
-						<!-- Search -->
-
+						<!-- Contacto-->
 						<div class="search_section d-flex flex-column align-items-center justify-content-center">
 							
 							<div class="search_content text-center">
-							<!--	<h1 class="search_title">Inscríbete Hoy </h1> -->
-								<form id="search_form" class="search_form" action="post">
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input type="text" name="name" placeholder="Nombre (*)"
-												class="form-control">
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input type="lastname" name="lastname" placeholder="Apellidos (*)"
-												class="form-control">
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input type="phone" name="phone" placeholder="Celular (*)"
-												class="form-control">
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<div class="form-group">
-											<input type="email" name="email" placeholder="E-mail (*)"
-												class="form-control">
-										</div>
-									</div>
-
-									<div class="col-lg-12">
-										<div class="form-group">
-											<select class="custom-select mr-sm-2 form-control">
-												<option selected>Curso de interes (*)</option>
-												<option value="1"> Operador de Maquinaria Pesada </option>
-												<option value="2"> Inyección Electrónica </option>
-												<option value="3"> Cajas Automáticas </option>
-												<option value="4"> Creación de Empresas y Startups </option>
-												<option value="5"> Transformación Digital de Empresas </option>
-												<option value="6"> Desarrollo de Aplicaciones Web </option>
-											</select>
-										</div>
-									</div>
-
-
-									<button id="search_submit_button" type="submit"
-										class="search_submit_button trans_200" value="Submit">ENVIAR </button>
-								</form>
+								
+								<div id="search_form" class="search_form" >									
+									<h2 class="text-muted">Escribenos para cualquier duda o consulta </h2> 
+									<div class="col-lg-12">										
+											<input id="info_contacto" type="text" required placeholder="Quiero recibir más informacion de los cursos " style="height: 80px"
+												class="form-control">																				
+									</div>																	
+									<button id="search_submit_button"
+										class="search_submit_button trans_200" onclick="sendWhatsapp_info()"> <i class="fab fa-whatsapp fa-lg mr-1" style="color: white;"></i> ENVIAR </button>
+								</div>
 								<div>
-									<p class="lead text-muted mt-2">
-										Para mas información comunicate a: 
-										
-						
-									  </p>
-									  <div class="contact_info">
+									<!-- <p class="lead text-muted mt-2">
+										Para mas información comunicate a: 																
+									  </p> -->
+									  <div class="contact_info mt-3">
 										<ul>
 											<li style="font-size: 1.3em">
 												<i class="fas fa-map-marker-alt fa-lg"></i>
@@ -791,99 +558,9 @@
 		</div>
 <!--Fin de contacto-->
 
-
-
 		<!-- Footer -->
-
 		<footer class="footer">
 			<div class="container">
-
-				
-
-				<!-- Footer Content -->
-
-				<div class="footer_content">
-					<div class="row">
-
-						<!-- Footer Column - About -->
-						<div class="col-lg-3 footer_col">
-
-							<!-- Logo -->
-							<div class="logo_container">
-								<div class="logo">
-									<span>Minertex Perú</span>
-								</div>
-							</div>
-
-							<p class="footer_about_text">In aliquam, augue a gravida rutrum, ante nisl fermentum nulla,
-								vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum,
-								tempor lacus.</p>
-
-						</div>
-
-						<!-- Footer Column - Menu -->
-
-						<div class="col-lg-3 footer_col">
-							<div class="footer_column_title">Menú</div>
-							<div class="footer_column_content">
-								<ul>
-									<li class="footer_list_item"><a href="#">Inicio</a></li>
-									<li class="footer_list_item"><a href="#">¿Quiénes Somos?</a></li>
-									<li class="footer_list_item"><a href="courses.html">Cursos</a></li>
-									<li class="footer_list_item"><a href="news.html">Beneficios</a></li>
-									<li class="footer_list_item"><a href="contact.html">Contacto</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Footer Column - Usefull Links -->
-
-						<div class="col-lg-3 footer_col">
-							<div class="footer_column_title">Industria 4.0</div>
-							<div class="footer_column_content">
-								<ul>
-									<li class="footer_list_item"><a href="#">Testimonials</a></li>
-									<li class="footer_list_item"><a href="#">FAQ</a></li>
-									<li class="footer_list_item"><a href="#">Community</a></li>
-									<li class="footer_list_item"><a href="#">Campus Pictures</a></li>
-									<li class="footer_list_item"><a href="#">Tuitions</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Footer Column - Contact -->
-
-						<div class="col-lg-3 footer_col">
-							<div class="footer_column_title">Contacto</div>
-							<div class="footer_column_content">
-								<ul>
-									<li class="footer_contact_item">
-										<div class="footer_contact_icon">
-											<img src="images/placeholder.svg"
-												alt="https://www.flaticon.com/authors/lucy-g">
-										</div>
-										Av. Unión Mz. K Lt. 6, VMT, Lima.
-									</li>
-									<li class="footer_contact_item">
-										<div class="footer_contact_icon">
-											<img src="images/smartphone.svg"
-												alt="https://www.flaticon.com/authors/lucy-g">
-										</div>
-										999909380 / 976052438
-									</li>
-									<li class="footer_contact_item">
-										<div class="footer_contact_icon">
-											<img src="images/envelope.svg"
-												alt="https://www.flaticon.com/authors/lucy-g">
-										</div>minertexperu@gmail.com
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
 				<!-- Footer Copyright -->
 
 				<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
@@ -891,20 +568,21 @@
 						<span>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta plantilla está hecha con
+							<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Diseñado con
 						 <i class="fa fa-heart" aria-hidden="true"></i> por <a
-								href="https://colorlib.com" target="_blank">Tenzor Company</a>
+								href="https://jhonsovero.github.io/" target="_blank">Jhon Sovero</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
 					</div>
+					
 					<div class="footer_social ml-sm-auto">
 						<ul class="menu_social">
-							<li class="menu_social_item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="menu_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li class="menu_social_item"><a href="https://pe.linkedin.com/in/jhon-sovero-sovero-41a55b138" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+							
+							<li class="menu_social_item"><a href="https://www.facebook.com/jhon.soverosovero" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li class="menu_social_item"><a href="https://www.youtube.com/channel/UCPc8b9bfqSfMkmJTXDMJfnA" target="_blank"><i class="fab fa-youtube"></i></a></li>
 						</ul>
 					</div>
+
 				</div>
 
 			</div>
